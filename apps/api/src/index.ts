@@ -1,9 +1,11 @@
-import { Hono } from 'hono'
+import { Hono } from "hono";
+import { corsMiddleware } from "./middleware/cors";
+import { quizRouter } from "./routes/quiz";
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+app.use("/*", corsMiddleware);
 
-export default app
+app.route("/", quizRouter);
+
+export default app;
