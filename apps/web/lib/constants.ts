@@ -7,7 +7,8 @@ export const API_ENDPOINTS = {
   GRADE: "/api/grade",
 } as const;
 
-export const DEFAULT_API_URL = "http://localhost:8787";
+export const DEFAULT_API_URL =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:8787";
 
 export const ERROR_MESSAGES = {
   DEFAULT: "An error occurred",
