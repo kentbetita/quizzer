@@ -93,6 +93,10 @@ What I got right: TypeScript and Zod validation throughout the entire stack, com
 
 What I took shortcuts on: The questions are just hardcoded in a file since we're using mock data only. Answers are only stored in client state, so if someone refreshes the page, they lose their progress. And for text answers, I'm just doing a simple case-insensitive string match - no fuzzy matching or handling synonyms. So "4" won't match "four", it has to be exact.
 
+No testing was implemented for either the UI or API. I tested everything manually, but there are no unit tests, integration tests, or E2E tests.
+
+For CI/CD, Vercel automatically builds and deploys the frontend on every push to the main branch. The API doesn't have any automation set up - deployments are done manually with `pnpm deploy` from the api directory. Cloudflare Workers does support GitHub Actions for automation, but it's not configured here.
+
 ## Honest Time Spent
 
 I spent about 4-5 hours total on this. Here's roughly how it broke down:
